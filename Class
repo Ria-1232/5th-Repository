@@ -1,0 +1,27 @@
+class Smartphone:
+    def __init__(self, brand, model, price):
+        self.brand = brand
+        self.model = model
+        self.__price = price  # Encapsulation (private attribute)
+
+    def get_price(self):
+        return self.__price  # Encapsulation - controlled access
+
+    def call(self, number):
+        print(f"Calling {number} from {self.model}...")
+
+# Inheritance: Creating a child class
+class Smartwatch(Smartphone):
+    def __init__(self, brand, model, price, health_tracking):
+        super().__init__(brand, model, price)
+        self.health_tracking = health_tracking
+
+    def track_steps(self):
+        print(f"{self.model} is tracking steps!")
+
+# Example usage
+phone = Smartphone("Samsung", "Galaxy S21", 1000)
+watch = Smartwatch("Apple", "Watch Series 7", 500, True)
+
+print(phone.get_price())  # Accessing private attribute using method
+watch.track_steps()
